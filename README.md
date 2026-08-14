@@ -10,6 +10,12 @@ Written and run against **Microsoft SQL Server 2019** using SSMS.
 
 ## What's here
 
+```
+queries/       concept-by-concept T-SQL, DDL through to triggers
+case-studies/  multi-table schemas with business questions to answer
+assignments/   three assessed assignments from the module
+```
+
 ### `queries/` — concept-by-concept T-SQL
 
 A progression from creating a database through to triggers, each file self-contained with its own schema and sample data so it can be run start to finish.
@@ -32,17 +38,31 @@ A progression from creating a database through to triggers, each file self-conta
 | `12b_alter_trigger.sql` | Modifying an existing trigger |
 | `13_rename_objects.sql` | `sp_rename` for tables and columns |
 
+### `case-studies/` — applied business analysis
+
+Multi-table schemas with business questions to answer, closest to the work an analyst actually does.
+
+**`01_coffee_chain_sales.sql`** — a coffee chain's Product / Location / fact star schema, 29 questions. State-wise profit and sales, average inventory per product, weekly sales hierarchies with `ROLLUP`, `DENSE_RANK` for sales ranking, a table-valued function projecting a 5% sales increase, a parameterised stored procedure by product type, and a transaction demonstrating `ROLLBACK`.
+
+Question 24 asked for `UNION` across two tables with different column counts. It cannot be done, and the reason is documented in place rather than the question being skipped.
+
+**`02_hr_employee_analysis.sql`** — an Employee / Department / Job / Location schema, organised by technique: simple queries, `WHERE`, `ORDER BY`, `GROUP BY`/`HAVING`, joins, conditional clauses, subqueries.
+
+The subquery section covers the questions that come up in interviews: the second-highest salary using `DENSE_RANK`, departments with no employees via a `LEFT JOIN` and `IS NULL`, and employees earning above their own department's average.
+
+**`03_banking_transactions.sql`** — a Customers / Transaction / Continent schema. Region-wise transaction counts by year, transaction ranges by type, duplicate detection with `GROUP BY … HAVING`, and stored procedures for filtered retrieval and inserts.
+
 ### `assignments/` — assessed work
 
 Three graded assignments, each a set of business questions answered in T-SQL.
 
-**`01_fashion_retail_constraints_and_set_operators.sql`** — a fashion retailer's salesman/customer/orders schema. Adding primary and foreign key constraints to existing tables, pattern matching, set operators.
+**`01_fashion_retail.sql`** — a fashion retailer's salesman / customer / orders schema. Adding primary and foreign key constraints to existing tables, pattern matching, set operators.
 
 Two constraint problems had to be solved before the schema would accept the keys, and both are documented inline: a primary key could not be added while the column allowed NULLs, and a foreign key failed because two referenced IDs were missing from the parent table.
 
-**`02_restaurant_analytics_functions_and_rollup.sql`** — restaurant listings data. A scalar UDF for string manipulation, a table-valued UDF returning the highest-rated restaurant, `CASE WHEN` rating bands, `CEILING`/`FLOOR`/`ABS`, date extraction, and `ROLLUP` subtotals across restaurant types.
+**`02_restaurant_ratings.sql`** — restaurant listings data. A scalar UDF for string manipulation, a table-valued UDF returning the highest-rated restaurant, `CASE WHEN` rating bands, `CEILING`/`FLOOR`/`ABS`, date extraction, and `ROLLUP` subtotals across restaurant types.
 
-**`03_restaurant_analytics_procedures_transactions_triggers.sql`** — the same restaurant data, more advanced. A stored procedure with filtering, a transaction wrapped in `TRY`/`CATCH` demonstrating `ROLLBACK`, a CTE with `ROW_NUMBER()` ranking areas by average rating, a `WHILE` loop, a view over the top five restaurants, and an `AFTER INSERT` trigger that writes user, date, time and operation to an audit table.
+**`03_restaurant_operations.sql`** — the same restaurant data, more advanced. A stored procedure with filtering, a transaction wrapped in `TRY`/`CATCH` demonstrating `ROLLBACK`, a CTE with `ROW_NUMBER()` ranking areas by average rating, a `WHILE` loop, a view over the top five restaurants, and an `AFTER INSERT` trigger that writes user, date, time and operation to an audit table.
 
 ---
 
