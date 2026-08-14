@@ -1,0 +1,63 @@
+# SQL Server Fundamentals — T-SQL Work
+
+Hands-on T-SQL written while working through the SQL module of my **Advanced Certification in Data Science & AI (IIT Roorkee · Intellipaat)**, plus the three assessed assignments for that module.
+
+**Provenance, stated plainly:** the datasets and problem statements come from the course. Every query in this repository is my own — including the comments where I worked through errors and design decisions.
+
+Written and run against **Microsoft SQL Server 2019** using SSMS.
+
+---
+
+## What's here
+
+### `queries/` — concept-by-concept T-SQL
+
+A progression from creating a database through to triggers, each file self-contained with its own schema and sample data so it can be run start to finish.
+
+| File | Covers |
+|---|---|
+| `01_ddl_create_database_and_tables.sql` | `CREATE DATABASE` / `CREATE TABLE`, data types, `INSERT` variants, partial-column inserts |
+| `02_operators_and_clauses.sql` | Comparison and logical operators, `WHERE`, `BETWEEN`, `IN`, `LIKE`, `ORDER BY` |
+| `03_set_operators_unions.sql` | `UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT` on a realtors schema |
+| `04_joins.sql` | `INNER` / `LEFT` / `RIGHT` / `FULL` joins across an authors–books–borrows schema |
+| `05_built_in_functions.sql` | String, mathematical, date and aggregate functions |
+| `06a_stored_procedures_intro.sql` | Minimal parameterised procedure |
+| `06b_stored_procedures_data_quality.sql` | A data-quality audit procedure: row counts, NULL counts per column, results written to an audit table with timestamps |
+| `07_subqueries_and_error_handling.sql` | Subqueries, `ROW_NUMBER() OVER (PARTITION BY …)`, `TRY`/`CATCH` |
+| `08_subqueries_exists.sql` | Correlated subqueries with `EXISTS` on a supermarket orders schema |
+| `09_user_defined_functions.sql` | Scalar-valued and table-valued functions |
+| `10_views_and_merge.sql` | `CREATE VIEW`, `MERGE` for upsert logic |
+| `11_rollup_and_cube.sql` | `GROUP BY ROLLUP` / `CUBE` subtotals, `COALESCE` to label aggregate rows |
+| `12a_triggers.sql` | `AFTER INSERT/UPDATE/DELETE` triggers writing to an audit table |
+| `12b_alter_trigger.sql` | Modifying an existing trigger |
+| `13_rename_objects.sql` | `sp_rename` for tables and columns |
+
+### `assignments/` — assessed work
+
+Three graded assignments, each a set of business questions answered in T-SQL.
+
+**`mandatory_assignment_1_abc_fashion.sql`** — a salesman/customer/orders schema. Adding primary and foreign key constraints to existing tables, pattern matching, set operators.
+
+Two constraint problems had to be solved before the schema would accept the keys, and both are documented inline: a primary key could not be added while the column allowed NULLs, and a foreign key failed because two referenced IDs were missing from the parent table.
+
+**`mandatory_assignment_2.sql`** — restaurant data. A scalar UDF for string manipulation, a table-valued UDF returning the highest-rated restaurant, `CASE WHEN` rating bands, `CEILING`/`FLOOR`/`ABS`, date extraction, and `ROLLUP` subtotals.
+
+**`mandatory_assignment_3.sql`** — the same restaurant data, more advanced. A stored procedure with filtering, a transaction wrapped in `TRY`/`CATCH` demonstrating `ROLLBACK`, a CTE with `ROW_NUMBER()` to rank areas by average rating, a `WHILE` loop, a view over the top five restaurants, and an `AFTER INSERT` trigger that writes user, date, time and operation to an audit table.
+
+---
+
+## Running these
+
+Each file creates the objects it needs. In SSMS, open a file and execute it top to bottom, or run sections individually.
+
+The syntax is T-SQL and assumes SQL Server. The main differences from MySQL are `IDENTITY(1,1)` rather than `AUTO_INCREMENT`, `TOP n` rather than `LIMIT n`, and square brackets rather than backticks for quoted identifiers.
+
+---
+
+## Why this repository exists
+
+I am moving from architecture and climate research into data and machine learning. SQL is the part of that toolkit I use to get at data before any modelling starts, and this is the working record of learning it properly — including stored procedures, transactions, triggers and user-defined functions rather than only `SELECT`.
+
+Other work: [bengaluru-urban-forestry](https://github.com/Rupali-Gauravaram/bengaluru-urban-forestry) · [Bengaluru_LST_Prediction_API](https://github.com/Rupali-Gauravaram/Bengaluru_LST_Prediction_API) · [bengaluru-ward-climate-clustering](https://github.com/Rupali-Gauravaram/bengaluru-ward-climate-clustering) · [fruit-leaf-classification-cnn](https://github.com/Rupali-Gauravaram/fruit-leaf-classification-cnn)
+
+— Rupali Gauravaram

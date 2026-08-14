@@ -1,0 +1,19 @@
+# SQL Server local files
+*.mdf
+*.ldf
+*.bak
+*.ndf
+
+# SSMS
+*.suo
+*.user
+*.ssmssqlproj
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
