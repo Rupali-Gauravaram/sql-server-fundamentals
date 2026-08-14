@@ -36,13 +36,13 @@ A progression from creating a database through to triggers, each file self-conta
 
 Three graded assignments, each a set of business questions answered in T-SQL.
 
-**`mandatory_assignment_1_abc_fashion.sql`** — a salesman/customer/orders schema. Adding primary and foreign key constraints to existing tables, pattern matching, set operators.
+**`01_fashion_retail_constraints_and_set_operators.sql`** — a fashion retailer's salesman/customer/orders schema. Adding primary and foreign key constraints to existing tables, pattern matching, set operators.
 
 Two constraint problems had to be solved before the schema would accept the keys, and both are documented inline: a primary key could not be added while the column allowed NULLs, and a foreign key failed because two referenced IDs were missing from the parent table.
 
-**`mandatory_assignment_2.sql`** — restaurant data. A scalar UDF for string manipulation, a table-valued UDF returning the highest-rated restaurant, `CASE WHEN` rating bands, `CEILING`/`FLOOR`/`ABS`, date extraction, and `ROLLUP` subtotals.
+**`02_restaurant_analytics_functions_and_rollup.sql`** — restaurant listings data. A scalar UDF for string manipulation, a table-valued UDF returning the highest-rated restaurant, `CASE WHEN` rating bands, `CEILING`/`FLOOR`/`ABS`, date extraction, and `ROLLUP` subtotals across restaurant types.
 
-**`mandatory_assignment_3.sql`** — the same restaurant data, more advanced. A stored procedure with filtering, a transaction wrapped in `TRY`/`CATCH` demonstrating `ROLLBACK`, a CTE with `ROW_NUMBER()` to rank areas by average rating, a `WHILE` loop, a view over the top five restaurants, and an `AFTER INSERT` trigger that writes user, date, time and operation to an audit table.
+**`03_restaurant_analytics_procedures_transactions_triggers.sql`** — the same restaurant data, more advanced. A stored procedure with filtering, a transaction wrapped in `TRY`/`CATCH` demonstrating `ROLLBACK`, a CTE with `ROW_NUMBER()` ranking areas by average rating, a `WHILE` loop, a view over the top five restaurants, and an `AFTER INSERT` trigger that writes user, date, time and operation to an audit table.
 
 ---
 
