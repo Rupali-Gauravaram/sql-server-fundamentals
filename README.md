@@ -71,11 +71,3 @@ The same data, going further. A stored procedure with filtering, a transaction w
 Open a file in SSMS and execute it top to bottom, or run sections on their own. Each file sets up what it needs.
 
 The syntax is T-SQL. If you are coming from MySQL, the differences you will notice most are IDENTITY(1,1) instead of AUTO_INCREMENT, TOP n instead of LIMIT n, and square brackets instead of backticks.
-
-## Why this is here
-
-I am moving from architecture and climate research into data and machine learning. SQL is how I get at data before any modelling starts, and this is the record of learning it properly, including the parts past SELECT: stored procedures, transactions, triggers and user defined functions.
-
-Other work: [bengaluru-urban-forestry](https://github.com/Rupali-Gauravaram/bengaluru-urban-forestry), [Bengaluru_LST_Prediction_API](https://github.com/Rupali-Gauravaram/Bengaluru_LST_Prediction_API), [bengaluru-ward-climate-clustering](https://github.com/Rupali-Gauravaram/bengaluru-ward-climate-clustering), [fruit-leaf-classification-cnn](https://github.com/Rupali-Gauravaram/fruit-leaf-classification-cnn)
-
-Rupali Gauravaram
